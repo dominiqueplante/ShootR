@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR;
-using Microsoft.AspNet.SignalR.Hubs;
 
 namespace ShootR
 {
@@ -145,7 +144,7 @@ namespace ShootR
 
         private void PushLeaderboard(List<object> leaderboard)
         {
-            GetContext().Clients.Client(Leaderboard.LEADERBOARD_REQUESTEE_GROUP).l(leaderboard);
+            GetContext().Clients.Group(Leaderboard.LEADERBOARD_REQUESTEE_GROUP).l(leaderboard);
         }
 
         public static IHubContext GetContext()
